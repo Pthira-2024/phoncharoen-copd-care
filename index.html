@@ -1,0 +1,143 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="COPD CARE เครื่องมือช่วยคำนวณและประเมินผู้ป่วย COPD สำหรับบุคลากรทางการแพทย์">
+<title>COPD CARE | Assessment & Calculator</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700&family=Sarabun:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app-shell">
+  <aside class="sidebar">
+    <a class="brand" href="#top"><span class="brand-icon">✚</span><span><b>COPD CARE</b><small>Clinical Toolkit</small></span></a>
+    <div class="side-label">เมนูหลัก</div>
+    <a class="nav-link active" href="#assessment">▦ <span>ภาพรวมการประเมิน</span></a>
+    <a class="nav-link" href="#pefr">↗ <span>Thai Predicted PEFR</span></a>
+    <a class="nav-link" href="#spirometry">◉ <span>Spirometry</span></a>
+    <a class="nav-link" href="#clinic">▤ <span>COPD Clinic Record</span></a>
+    <a class="nav-link" href="#cat">☷ <span>CAT Assessment</span></a>
+    <a class="nav-link" href="#mmrc">◌ <span>mMRC Assessment</span></a>
+    <a class="nav-link" href="#exacerbation">↗ <span>Exacerbation</span></a>
+    <a class="nav-link" href="#vitals">♡ <span>Clinical Assessment</span></a>
+    <div class="sidebar-note"><b>Clinical reminder</b><p>การวินิจฉัย COPD ต้องพิจารณาอาการ ประวัติสัมผัสปัจจัยเสี่ยง และผล Spirometry หลังให้ยาขยายหลอดลม</p></div>
+    <div class="side-foot">COPD CARE · Prototype<br>For healthcare professionals</div>
+  </aside>
+
+  <main class="main" id="top">
+    <header class="topbar"><div><div class="eyebrow">RESPIRATORY HEALTH WORKSPACE</div><h1>เครื่องมือประเมินผู้ป่วย COPD</h1><p>แบบประเมินและเครื่องคำนวณสำหรับงานคลินิก NCD / OPD</p></div><div class="top-chip"><span class="live-dot"></span> Offline-ready · No patient data upload</div></header>
+
+    <section class="hero" id="assessment">
+      <div><div class="hero-kicker">PHONCHAROEN HOSPITAL · CHRONIC OBSTRUCTIVE PULMONARY DISEASE</div><h2>ประเมินอย่างเป็นระบบ<br><em>ดูแลอย่างมั่นใจ</em></h2><p>รวมเครื่องมือประเมินอาการ สมรรถภาพปอด และประวัติการกำเริบไว้ในหน้าเดียว</p><a class="hero-button" href="#spirometry">เริ่มประเมินผู้ป่วย <span>→</span></a></div>
+      <div class="lung-art" aria-hidden="true"><div class="lung-ring ring1"></div><div class="lung-ring ring2"></div><svg viewBox="0 0 280 260" role="img" aria-label="ภาพประกอบปอด"><path d="M136 26 v91 M144 26 v91 M140 78 l-31 42 M140 78 l31 42" stroke="#d8fbf6" stroke-width="9" fill="none" stroke-linecap="round"/><path d="M128 98 C103 78 83 88 64 115 C40 150 34 220 76 230 C110 238 128 205 132 164 Z" fill="#79d8cd" opacity=".95"/><path d="M152 98 C177 78 197 88 216 115 C240 150 246 220 204 230 C170 238 152 205 148 164 Z" fill="#4ebdb3" opacity=".95"/><path d="M136 118 l-32 45 M144 118 l32 45 M108 120 l-23 40 M172 120 l23 40" stroke="#e9fffb" stroke-width="5" fill="none" stroke-linecap="round" opacity=".85"/></svg><span class="art-label">LUNG FUNCTION<br><b>ASSESSMENT</b></span></div>
+    </section>
+
+    <section class="metrics-grid">
+      <article class="metric-card"><div class="metric-top"><span>CAT SCORE</span><span class="metric-icon">☷</span></div><strong id="catMetric">—<small>/40</small></strong><p id="catMetricText">ยังไม่ได้ประเมิน</p></article>
+      <article class="metric-card"><div class="metric-top"><span>mMRC GRADE</span><span class="metric-icon">◌</span></div><strong id="mmrcMetric">—<small>/4</small></strong><p id="mmrcMetricText">ยังไม่ได้ประเมิน</p></article>
+      <article class="metric-card"><div class="metric-top"><span>FEV₁ % PREDICTED</span><span class="metric-icon">◉</span></div><strong id="fevMetric">—<small>%</small></strong><p id="fevMetricText">รอผล Spirometry</p></article>
+      <article class="metric-card"><div class="metric-top"><span>GOLD ABE GROUP</span><span class="metric-icon">◇</span></div><strong id="abeMetric">—</strong><p id="abeMetricText">รอข้อมูลอาการและการกำเริบ</p></article>
+    </section>
+
+    <section class="panel" id="pefr">
+<div class="section-heading"><div><div class="eyebrow">01 · PEAK EXPIRATORY FLOW</div><h2>Thai Predicted PEFR Calculator</h2><p>สมการอ้างอิงประชากรไทย Dejsomritrutai et al. (2000)</p></div><span class="section-number">01</span></div>
+<div class="form-grid three">
+<label>เพศกำเนิดตามสมการ<select id="pefrSex"><option value="M">ชาย</option><option value="F">หญิง</option></select></label>
+<label>อายุ (ปี)<input id="pefrAge" type="number" min="10" max="92" placeholder="เช่น 65"></label>
+<label>ส่วนสูง (ซม.)<input id="pefrHeight" type="number" min="121" max="185" step="0.1" placeholder="เช่น 160"></label>
+<label>ค่า PEFR ที่วัดได้ (L/min)<input id="pefrMeasured" type="number" min="1" step="1" placeholder="เช่น 280"></label>
+</div>
+<div class="button-row"><button class="primary" id="calcPefr">คำนวณ Predicted PEFR</button><button class="secondary" id="resetPefr">ล้างค่า</button></div>
+<div class="result-grid" id="pefrResult" aria-live="polite"><div class="result-placeholder">กรอกเพศ อายุ ส่วนสูง และ PEFR ที่วัดได้</div></div>
+<div class="clinical-note"><b>การแปลผลและข้อจำกัด</b><p>% predicted = (PEFR ที่วัดได้ ÷ PEFR predicted) × 100 โดยสมการต้นฉบับให้ผลเป็น L/s จึงแปลงเป็น L/min ด้วยการคูณ 60 งานวิจัยศึกษาอาสาสมัครไทยสุขภาพดีที่ไม่เคยสูบบุหรี่ อายุ 10–92 ปี และส่วนสูง 121–185 ซม. สมการนี้ใช้ประกอบการประเมิน PEFR เท่านั้น ไม่ใช้ยืนยัน COPD แทน post-BD spirometry หรือใช้แทน FEV₁/FVC และไม่กำหนดโซนรักษา COPD</p></div>
+</section>
+<section class="panel" id="spirometry">
+      <div class="section-heading"><div><div class="eyebrow">01 · LUNG FUNCTION</div><h2>Spirometry Calculator</h2><p>คำนวณอัตราส่วน FEV₁/FVC และระดับการอุดกั้นจากผลหลังให้ยาขยายหลอดลม</p></div><span class="section-number">01</span></div>
+      <div class="form-grid three">
+        <label>FEV₁ หลังให้ยาขยายหลอดลม (L)<input id="postFev1" type="number" min="0" step="0.01" placeholder="เช่น 1.45"></label>
+        <label>FVC หลังให้ยาขยายหลอดลม (L)<input id="postFvc" type="number" min="0" step="0.01" placeholder="เช่น 2.35"></label>
+        <label>ค่า FEV₁ ปกติคาดการณ์ (L)<input id="predFev1" type="number" min="0" step="0.01" placeholder="จากรายงาน PFT"></label>
+      </div>
+      <div class="hint">กรอกค่า Predicted FEV₁ จากสมการอ้างอิงที่เหมาะสมกับผู้ป่วยและรายงานห้องตรวจสมรรถภาพปอด ไม่ควรประมาณค่าจากอายุหรือส่วนสูงด้วยตนเอง</div>
+      <div class="button-row"><button class="primary" id="calcSpiro">คำนวณผล Spirometry</button><button class="secondary" id="resetSpiro">ล้างค่า</button></div>
+      <div class="result-grid" id="spiroResult" aria-live="polite"><div class="result-placeholder">กรอกข้อมูลและกดคำนวณเพื่อแสดงผล</div></div>
+      <div class="clinical-note"><b>ข้อควรทราบ</b><p>เกณฑ์ Spirometry ที่สอดคล้องกับ COPD คือ post-bronchodilator FEV₁/FVC &lt; 0.70 ในบริบททางคลินิกที่เหมาะสม ระดับ GOLD 1–4 ใช้ FEV₁ % predicted โดย GOLD 1 ≥80%, GOLD 2 50–79%, GOLD 3 30–49% และ GOLD 4 &lt;30% ค่านี้เป็นระดับ airflow obstruction ไม่ใช่ระดับความรุนแรงของผู้ป่วยทั้งหมด</p></div>
+    </section>
+
+    <section class="panel" id="cat">
+      <div class="section-heading"><div><div class="eyebrow">02 · SYMPTOM BURDEN</div><h2>CAT Assessment</h2><p>แบบประเมิน COPD Assessment Test จำนวน 8 ข้อ คะแนนรวม 0–40</p></div><span class="section-number">02</span></div>
+      <div class="cat-list" id="catQuestions"></div><div class="hint">ใช้แนวคำถามภาษาไทยจากเครื่องมือ CAT ที่ผ่านกระบวนการแปลและตรวจสอบความตรง/ความเชื่อมั่นในผู้ป่วยไทย งานวิจัยรายงาน Cronbach’s α = 0.853 และความสัมพันธ์กับ SGRQ r = 0.652 ควรใช้แบบฟอร์ม CAT ฉบับทางการที่ได้รับอนุญาตในงานบริการจริง</div>
+      <div class="score-strip"><div><span>คะแนน CAT รวม</span><strong id="catTotal">0 <small>/ 40</small></strong></div><div id="catInterpretation" class="score-description">โปรดตอบแบบประเมินให้ครบทั้ง 8 ข้อ</div></div>
+    </section>
+
+    <section class="panel" id="mmrc">
+      <div class="section-heading"><div><div class="eyebrow">03 · BREATHLESSNESS</div><h2>mMRC Dyspnea Scale</h2><p>เลือกข้อความที่ตรงกับระดับอาการเหนื่อยของผู้ป่วยมากที่สุด</p></div><span class="section-number">03</span></div>
+      <div class="mmrc-list" id="mmrcOptions"></div>
+      <div class="score-strip"><div><span>mMRC Grade</span><strong id="mmrcTotal">— <small>/ 4</small></strong></div><div id="mmrcInterpretation" class="score-description">ยังไม่ได้เลือกระดับอาการ</div></div>
+    </section>
+
+    <section class="panel" id="exacerbation">
+      <div class="section-heading"><div><div class="eyebrow">04 · FUTURE RISK</div><h2>Exacerbation History</h2><p>ประวัติการกำเริบในช่วง 12 เดือนที่ผ่านมา</p></div><span class="section-number">04</span></div>
+      <div class="form-grid three">
+        <label>จำนวนครั้ง Moderate exacerbation<input id="moderateEx" type="number" min="0" max="30" step="1" value="0"></label>
+        <label>จำนวนครั้งที่นอนโรงพยาบาล<input id="severeEx" type="number" min="0" max="30" step="1" value="0"></label>
+        <label>ช่วงเวลาที่ประเมิน<select id="exPeriod"><option value="12">12 เดือนที่ผ่านมา</option></select></label>
+      </div>
+      <div class="hint">บันทึกจำนวนครั้งตามนิยามทางคลินิก โดยแยกเหตุการณ์ที่นำไปสู่การนอนโรงพยาบาลออกจาก moderate exacerbation</div>
+      <div class="score-strip"><div><span>ประวัติการกำเริบ</span><strong id="exTotal">0 <small>ครั้ง</small></strong></div><div id="exInterpretation" class="score-description">ยังไม่มีประวัติการกำเริบที่ระบุ</div></div>
+    </section>
+
+    <section class="panel" id="vitals">
+      <div class="section-heading"><div><div class="eyebrow">05 · CLINICAL OBSERVATION</div><h2>Clinical Assessment</h2><p>บันทึกสัญญาณชีพและข้อมูลประกอบการประเมิน</p></div><span class="section-number">05</span></div>
+      <div class="form-grid three">
+        <label>SpO₂ (%)<input type="number" id="spo2" min="0" max="100" placeholder="เช่น 95"></label>
+        <label>Respiratory rate (ครั้ง/นาที)<input type="number" id="rr" min="0" placeholder="เช่น 20"></label>
+        <label>Heart rate (ครั้ง/นาที)<input type="number" id="hr" min="0" placeholder="เช่น 88"></label>
+        <label>Blood pressure (mmHg)<input id="bp" type="text" placeholder="เช่น 130/80"></label>
+        <label>อาการสำคัญ<input id="symptoms" type="text" placeholder="เช่น ไอ เหนื่อย มีเสมหะ"></label>
+        <label>หมายเหตุ<textarea id="notes" rows="2" placeholder="ข้อมูลเพิ่มเติม"></textarea></label>
+      </div>
+      <div class="hint warn">SpO₂ ต้องแปลผลร่วมกับอาการ สภาพผู้ป่วย ค่า baseline และแผนการรักษา ไม่ใช้ค่าจากเครื่องวัดเพียงอย่างเดียวกำหนดการให้ออกซิเจน</div>
+    </section>
+
+    <section class="panel" id="clinic">
+<div class="section-heading"><div><div class="eyebrow">06 · COPD CLINIC FOLLOW-UP</div><h2>COPD Clinic Record</h2><p>แบบบันทึกประวัติ ปัจจัยเสี่ยง การใช้ยา และแผนติดตาม</p></div><span class="section-number">06</span></div>
+<div class="form-grid three">
+<label>ชื่อ–สกุล (ไม่บังคับ)<input id="patientName" type="text" autocomplete="off"></label>
+<label>HN (ไม่บังคับ)<input id="patientHN" type="text" autocomplete="off"></label>
+<label>วันที่ประเมิน<input id="visitDate" type="date"></label>
+<label>สถานะการสูบบุหรี่<select id="smokingStatus"><option value="">เลือก</option><option>ไม่เคยสูบ</option><option>เคยสูบ / เลิกแล้ว</option><option>ยังสูบอยู่</option><option>ได้รับควันบุหรี่มือสอง</option></select></label>
+<label>จำนวนบุหรี่ (มวน/วัน)<input id="cigPerDay" type="number" min="0" step="0.1"></label>
+<label>ระยะเวลาสูบ (ปี)<input id="smokingYears" type="number" min="0" step="0.1"></label>
+<label>Pack-years (คำนวณอัตโนมัติ)<input id="packYears" type="text" readonly placeholder="—"></label>
+<label>ยาพ่น / อุปกรณ์ที่ใช้<input id="inhalerName" type="text" placeholder="เช่น pMDI, DPI, SMI และชื่อยา"></label>
+<label>ความสม่ำเสมอในการใช้ยา<select id="adherence"><option value="">เลือก</option><option>ใช้สม่ำเสมอ</option><option>ลืมใช้เป็นบางครั้ง</option><option>ใช้ไม่สม่ำเสมอ</option><option>ไม่มียาประจำ</option></select></label>
+<label>วันนัดติดตาม<input id="followDate" type="date"></label>
+<label>แผนติดตาม / นัดหมาย<textarea id="followPlan" rows="2"></textarea></label>
+<label>ปัญหาจากการใช้ยาพ่น / อาการไม่พึงประสงค์<textarea id="inhalerIssue" rows="2"></textarea></label>
+</div>
+<h3 class="subheading">ตรวจสอบเทคนิคการใช้ยาพ่น</h3>
+<div class="check-grid">
+<label><input type="checkbox" class="technique" value="เลือกอุปกรณ์เหมาะสม"> เลือกอุปกรณ์เหมาะสมกับผู้ป่วย</label>
+<label><input type="checkbox" class="technique" value="เตรียม/เขย่าอุปกรณ์ถูกต้อง"> เตรียม/เขย่าอุปกรณ์ถูกต้องตามชนิด</label>
+<label><input type="checkbox" class="technique" value="หายใจออกก่อนสูด"> หายใจออกก่อนสูดยา</label>
+<label><input type="checkbox" class="technique" value="ประสานการกดและสูด (pMDI)"> ประสานการกดและสูด (pMDI)</label>
+<label><input type="checkbox" class="technique" value="สูดเข้าลึกและเหมาะกับอุปกรณ์"> สูดเข้าลึกและเหมาะกับอุปกรณ์</label>
+<label><input type="checkbox" class="technique" value="กลั้นหายใจหลังสูดตามเหมาะสม"> กลั้นหายใจหลังสูดตามเหมาะสม</label>
+<label><input type="checkbox" class="technique" value="บ้วนปากหลัง ICS"> บ้วนปากหลังใช้ ICS (ถ้ามี)</label>
+<label><input type="checkbox" class="technique" value="สาธิตย้อนกลับได้"> ผู้ป่วยสาธิตย้อนกลับได้</label>
+</div><div class="hint">เลือกเฉพาะขั้นตอนที่เกี่ยวข้องกับชนิดอุปกรณ์จริง ประเมินด้วยการให้ผู้ป่วยสาธิตย้อนกลับ (teach-back)</div>
+</section>
+<section class="panel summary-panel">
+      <div class="section-heading"><div><div class="eyebrow">07 · CLINICAL SUMMARY</div><h2>สรุปผลการประเมิน</h2><p>ระบบจะรวบรวมคะแนนและข้อมูลที่กรอกไว้ในหน้านี้</p></div><span class="section-number">06</span></div>
+      <div id="finalSummary" class="summary-content">กรอกข้อมูล CAT, mMRC, Spirometry และประวัติการกำเริบ เพื่อสร้างสรุปผล</div>
+      <div class="button-row"><button class="primary" id="printReport">ส่งออก / บันทึกเป็น PDF</button><button class="secondary" id="clearAll">เริ่มประเมินใหม่</button></div>
+      <p class="privacy-line">ข้อมูลในต้นแบบนี้ประมวลผลในเบราว์เซอร์และไม่ส่งขึ้นเซิร์ฟเวอร์ ทั้งนี้ไม่ควรกรอกชื่อ เลขประจำตัว หรือข้อมูลที่ระบุตัวผู้ป่วยในเครื่องที่ใช้ร่วมกัน</p>
+    </section>
+
+    <footer><b>COPD CARE</b> · Clinical Assessment & Calculator <span>Prototype for healthcare professionals · ตรวจสอบแนวทางก่อนใช้งานจริง</span></footer>
+  </main>
+</div>
+<script src="app.js"></script>
+</body></html>
